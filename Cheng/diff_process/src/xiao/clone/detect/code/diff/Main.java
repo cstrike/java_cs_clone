@@ -30,9 +30,9 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, ParseException, InvalidInputException {
 		JSONParser parser = new JSONParser();
-		String javaPath = "D:/codeclone/preprocess/antlr3_java.json";
-		String csPath = "D:/codeclone/preprocess/antlr3_csharp.json";
-		Object obj = parser.parse(new FileReader(javaPath));
+		String javaPath = "D:/java_cs_clone/Peng/data/antlr3/antlr3_java_pretty.json";
+		String csPath = "D:/java_cs_clone/Peng/data/antlr3/antlr3_csharp_pretty.json";
+		Object obj = parser.parse(new FileReader(csPath));
 		JSONObject diff = (JSONObject) obj;
 		for (Object o : diff.entrySet()) {
 			Entry entry = (Entry) o;
@@ -100,14 +100,14 @@ public class Main {
 			}
 		}
 		// System.out.println(diff.toJSONString());
-		PrintStream out = new PrintStream(new File("D:/codeclone/preprocess/antlr3_java_new.json"));
+		PrintStream out = new PrintStream(new File("D:/java_cs_clone/Cheng/diff_process/json/antlr3_cs_new.json"));
 		System.setOut(out);
 		System.out.println("{");
 		for(Object o : diff.entrySet()){
 			Entry entry = (Entry) o;
 			JSONObject val = (JSONObject) entry.getValue();
 			String key = (String) entry.getKey();
-			System.out.println(key + " : " + val.toJSONString() + ",");
+			System.out.println("\"" + key + "\"" + " : " + val.toJSONString() + ",");
 		}
 		System.out.println("}");
 		
