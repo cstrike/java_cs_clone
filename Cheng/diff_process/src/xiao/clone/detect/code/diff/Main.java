@@ -30,8 +30,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException, ParseException, InvalidInputException {
 		JSONParser parser = new JSONParser();
-		String javaPath = "D:/java_cs_clone/Peng/data/antlr3/antlr3_java_pretty.json";
-		String csPath = "D:/java_cs_clone/Peng/data/antlr3/antlr3_csharp_pretty.json";
+		String javaPath = "D:/java_cs_clone/Peng/data/log4/log4j.json";
+		String csPath = "D:/java_cs_clone/Peng/data/log4/log4net.json";
 		Object obj = parser.parse(new FileReader(csPath));
 		JSONObject diff = (JSONObject) obj;
 		for (Object o : diff.entrySet()) {
@@ -100,7 +100,7 @@ public class Main {
 			}
 		}
 		// System.out.println(diff.toJSONString());
-		PrintStream out = new PrintStream(new File("D:/java_cs_clone/Cheng/diff_process/json/antlr3_cs_new.json"));
+		PrintStream out = new PrintStream(new File("D:/java_cs_clone/Cheng/diff_process/json/log4j/log4net_new.json"));
 		System.setOut(out);
 		System.out.println("{");
 		for(Object o : diff.entrySet()){
